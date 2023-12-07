@@ -1,9 +1,11 @@
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:groceryapp/home_subview/edit_cart.dart';
 import 'package:groceryapp/views/cart.dart';
 import 'package:groceryapp/views/customers.dart';
 import 'package:groceryapp/views/homepage.dart';
-import 'package:groceryapp/views/neworder.dart';
+import 'package:groceryapp/home_subview/product.dart';
+import 'package:groceryapp/views/new_order.dart';
 import 'package:groceryapp/views/return_order.dart';
 
 class BottomBar extends StatefulWidget {
@@ -18,9 +20,9 @@ class _BottomBarState extends State<BottomBar> {
 
   final List<Widget> bottomBarPages = [
     const HomePage(),
-    const NewOrder(),
+    const NewOrders(),
     const Cart(),
-    const Reorder_Order(),
+    const EditCart(),
     const Customer()
   ];
 
