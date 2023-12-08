@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/home_subview/product.dart';
+import 'package:groceryapp/subview/product.dart';
+import 'package:groceryapp/views/customers.dart';
+import 'package:groceryapp/views/new_order.dart';
 import 'package:groceryapp/widgets/card.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,9 +29,15 @@ class HomePage extends StatelessWidget {
             ),
             Row(
               children: [
-                card(
-                  icon: Icons.people,
-                  title: "Customer",
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Customer()));
+                  },
+                  child: card(
+                    icon: Icons.people,
+                    title: "Customer",
+                  ),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -40,16 +48,22 @@ class HomePage extends StatelessWidget {
                   },
                   child: card(
                     icon: Icons.shopping_cart,
-                    title: "Product",
+                    title: "     Product    ",
                   ),
                 )
               ],
             ),
             Row(
               children: [
-                card(
-                  icon: Icons.add,
-                  title: "New Order",
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NewOrders()));
+                  },
+                  child: card(
+                    icon: Icons.add,
+                    title: " New Order",
+                  ),
                 ),
                 card(
                   icon: Icons.keyboard_return_outlined,
@@ -69,18 +83,20 @@ class HomePage extends StatelessWidget {
                 )
               ],
             ),
-            Row(
-              children: [
-                card(
-                  icon: Icons.map,
-                  title: "Route",
-                ),
-                card(
-                  icon: Icons.map,
-                  title: "Route",
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Center(
+            //       child: card(
+            //         icon: Icons.map,
+            //         title: "Route",
+            //       ),
+            //     ),
+            //     card(
+            //       icon: Icons.map,
+            //       title: " Route ",
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

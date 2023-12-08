@@ -36,7 +36,12 @@ class NewOrders extends StatelessWidget {
       ),
       body: Column(
         children: [
-          search(), // Capitalize the widget name
+          search(
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.grey,
+            ),
+          ), // Capitalize the widget name
           Expanded(
             child: Container(
               decoration: BoxDecoration(),
@@ -47,7 +52,6 @@ class NewOrders extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     leading: Card(
-                      
                       elevation: 5,
                       child: Container(
                         decoration: BoxDecoration(

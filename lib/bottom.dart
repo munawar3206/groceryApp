@@ -1,10 +1,9 @@
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:groceryapp/home_subview/edit_cart.dart';
+import 'package:groceryapp/subview/edit_cart.dart';
 import 'package:groceryapp/views/cart.dart';
 import 'package:groceryapp/views/customers.dart';
 import 'package:groceryapp/views/homepage.dart';
-import 'package:groceryapp/home_subview/product.dart';
 import 'package:groceryapp/views/new_order.dart';
 import 'package:groceryapp/views/return_order.dart';
 
@@ -22,7 +21,7 @@ class _BottomBarState extends State<BottomBar> {
     const HomePage(),
     const NewOrders(),
     const Cart(),
-    const EditCart(),
+    const Reorder_Order(),
     const Customer()
   ];
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/subview/edit_cart.dart';
 import 'package:groceryapp/widgets/search.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -36,7 +37,12 @@ class ProductScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          search(),
+          search(
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.grey,
+            ),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -106,7 +112,10 @@ class GridItem extends StatelessWidget {
                 MaterialButton(
                   shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => EditCart()));
+                  },
                   child: Text(
                     "Add",
                     style: TextStyle(color: Colors.white),
