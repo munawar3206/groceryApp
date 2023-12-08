@@ -14,8 +14,7 @@ class card extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(13.0),
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.end,
-        // crossAxisAlignment: CrossAxisAlignment.start,
+      
         children: [
           Stack(
             children: [
@@ -32,18 +31,12 @@ class card extends StatelessWidget {
                       ),
                       blurRadius: 10.0,
                       spreadRadius: 2.0,
-                    ), //BoxShadow
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(0.0, 0.0),
-                      blurRadius: 0.0,
-                      spreadRadius: 0.0,
-                    ), //BoxShadow
+                    ), 
+              
                   ],
                 ),
                 height: 150,
                 width: 160,
-                // color: Colors.black,
               ),
               Positioned(
                 top: 50,

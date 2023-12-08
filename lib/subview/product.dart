@@ -37,12 +37,12 @@ class ProductScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          search(
-            icon: Icon(
-              Icons.arrow_drop_down,
-              color: Colors.grey,
-            ),
-          ),
+          // search(
+          //   icon: Icon(
+          //     Icons.arrow_drop_down,
+          //     color: Colors.grey,
+          //   ),
+          // ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),

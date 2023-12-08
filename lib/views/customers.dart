@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceryapp/widgets/search.dart';
 
@@ -13,21 +14,21 @@ class Customer extends StatelessWidget {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios_new_outlined,
             color: Colors.black,
           ),
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.menu,
-              color: const Color.fromARGB(255, 0, 0, 0),
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
             onPressed: () {},
           ),
         ],
-        title: Text(
+        title: const Text(
           "Customers",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -37,10 +38,16 @@ class Customer extends StatelessWidget {
       body: Column(
         children: [
           search(
-            icon: Icon(
-              Icons.add_circle,
-              color: Color.fromARGB(255, 3, 33, 130),
+            icon: GestureDetector(
+              onTap: () {
+                _showAddCustomerBottomSheet(context);
+              },
+              child: Icon(
+                Icons.add_circle,
+                color: Color.fromARGB(255, 3, 33, 130),
+              ),
             ),
+            nav: null,
           ),
           Expanded(
             child: Container(
@@ -53,18 +60,18 @@ class Customer extends StatelessWidget {
                     leading: Card(
                       elevation: 5,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://media.istockphoto.com/id/587805156/vector/profile-picture-vector-illustration.jpg?s=612x612&w=0&k=20&c=gkvLDCgsHH-8HeQe7JsjhlOY6vRBJk_sKW9lyaLgmLo="))),
+                                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPQYDLrl4smDlC_NO3SzrZlGx-weLC7cAsGw&usqp=CAU"))),
                         height: 60,
                         width: 80,
                       ),
                     ),
-                    title: const Column(
+                    title: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        const Row(
                           children: [
                             Text(
                               "Nesto Hypermarket",
@@ -74,23 +81,38 @@ class Customer extends StatelessWidget {
                               width: 50,
                             ),
                             Icon(
-                              Icons.call,
-                              size: 15,
+                              CupertinoIcons.phone_circle_fill,
+                              size: 20,
                               color: Color.fromARGB(255, 0, 14, 144),
                             ),
+                            SizedBox(
+                              width: 5,
+                            ),
                             Icon(
-                              Icons.chat,
-                              size: 15,
-                              color: Color.fromARGB(255, 0, 14, 144),
+                              CupertinoIcons.chat_bubble,
+                              size: 20,
+                              color: Color.fromARGB(255, 0, 144, 17),
                             )
                           ],
                         ),
-                        Text("ID:555454D",
+                        const Text("ID:555454D",
                             style: TextStyle(color: Colors.grey)),
-                        Text("West Calicut",
+                        const Text("West Calicut",
                             style: TextStyle(color: Colors.grey)),
-                        Text("Due Amount : 655",
-                            style: TextStyle(fontWeight: FontWeight.bold))
+                        RichText(
+                          text: const TextSpan(
+                              text: "Due Amount : ",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  fontWeight: FontWeight.bold),
+                              children: [
+                                TextSpan(
+                                    text: "50.00",
+                                    style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold))
+                              ]),
+                        )
                       ],
                     ),
                   );
@@ -100,6 +122,73 @@ class Customer extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  _showAddCustomerBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Add Customer',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(Icons.highlight_remove))
+                  ],
+                ),
+                Text("Customer Name"),
+                textfieldcustomer(),
+                Text("Mobile Number"),
+                textfieldcustomer(),
+                Text("Email"),
+                textfieldcustomer(),
+                Text("Address"),
+                textfieldcustomer(),
+                Text("Email"),
+                textfieldcustomer(),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('Add'),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class textfieldcustomer extends StatelessWidget {
+  const textfieldcustomer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoTextField(
+      decoration: BoxDecoration(border: Border(bottom: BorderSide())
+          // borderRadius: BorderRadius.circular(5),
+          ),
     );
   }
 }

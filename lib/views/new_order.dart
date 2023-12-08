@@ -36,12 +36,12 @@ class NewOrders extends StatelessWidget {
       ),
       body: Column(
         children: [
-          search(
-            icon: Icon(
-              Icons.arrow_drop_down,
-              color: Colors.grey,
-            ),
-          ), // Capitalize the widget name
+          // search(
+          //   icon: Icon(
+          //     Icons.arrow_drop_down,
+          //     color: Colors.grey,
+          //   ), nav: null,
+          // ), 
           Expanded(
             child: Container(
               decoration: BoxDecoration(),
@@ -73,8 +73,20 @@ class NewOrders extends StatelessWidget {
                             style: TextStyle(color: Colors.grey)),
                         Text("West Calicut",
                             style: TextStyle(color: Colors.grey)),
-                        Text("Due Amount : 655",
-                            style: TextStyle(fontWeight: FontWeight.bold))
+                        RichText(
+                          text: const TextSpan(
+                              text: "Due Amount : ",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  fontWeight: FontWeight.bold),
+                              children: [
+                                TextSpan(
+                                    text: "50.00",
+                                    style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold))
+                              ]),
+                        )
                       ],
                     ),
                   );

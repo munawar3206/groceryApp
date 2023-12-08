@@ -4,15 +4,16 @@ class search extends StatelessWidget {
   const search({
     super.key,
     required this.icon,
+     required this.nav,
   });
-  final Icon icon;
-
+  final icon;
+   final nav;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: TextFormField(
             decoration: InputDecoration(
                 hintText: "Search",
@@ -21,15 +22,24 @@ class search extends StatelessWidget {
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      const Icon(
-                        Icons.qr_code,
-                        color: Colors.grey,
-                      ),
-                      icon
-                    ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => nav));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.qr_code,
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        icon
+                      ],
+                    ),
                   ),
                 ),
                 border: OutlineInputBorder(

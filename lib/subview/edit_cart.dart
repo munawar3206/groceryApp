@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/views/new_order.dart';
 
 class EditCart extends StatelessWidget {
   const EditCart({Key? key}) : super(key: key);
@@ -93,7 +94,12 @@ class EditCart extends StatelessWidget {
                         children: [
                           MaterialButton(
                             color: const Color.fromARGB(255, 9, 9, 153),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NewOrders()));
+                            },
                             child: const Text("Order",
                                 style: TextStyle(color: Colors.white)),
                           ),
@@ -139,11 +145,36 @@ class ListCart extends StatelessWidget {
               ),
               Row(
                 children: [
-                  MaterialButton(
-                    onPressed: () {},
-                    color: const Color.fromARGB(255, 0, 14, 103),
-                    child: const Text("-  1  +",
-                        style: TextStyle(color: Colors.white)),
+                  Container(
+                    child: MaterialButton(
+                      onPressed: () {},
+                      color: const Color.fromARGB(255, 0, 14, 103),
+                      child: Row(
+                        children: <Widget>[
+                          IconButton(
+                            icon: Icon(
+                              Icons.remove,
+                              color: Colors.white,
+                              size: 10,
+                            ),
+                            onPressed: () {},
+                          ),
+                          Text(
+                            '1',
+                            style:
+                                TextStyle(fontSize: 10.0, color: Colors.white),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: 10,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   IconButton(
                     onPressed: () {},
